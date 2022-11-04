@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla periodica</title>
+    <link rel="stylesheet" href="/assests/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="/assests/css/style.css">
+</head>
+<body>
+    <div class="ms-5 mt-3">
+        <div class="row">
+            <div class="col-md-12 mb-2 mt-3">
+                <h3 class="text-center text-light fw-bolder">T<u>abla Periódica de los Elementos Químicos</u></h4>
+            </div>
+        </div>
+        {{#each (ListarPrimerArreglo elementos) as |elemento|}}
+        <!-- FILA 1 -->
+        <!-- Marca el inicio de la primera fila -->
+        {{#if (Comparance elemento 1 2)}}
+                <!-- Identificamos si es la primera posicion -->
+            {{#if (ComparacionUno elemento 1)}}
+                <div class="row"  >
+                    {{#if (SelectColor elemento "Otros No Metales")}}                    
+                        <div class="columnas bg-success bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                    {{else}}
+                        <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                    {{/if}}
+            {{else}}
+                    <div class="invisible segunda-fila">&nbsp;</div>
+                    {{#if (SelectColor elemento "Gases Nobles")}}
+                        <div class="columnas bg-primary bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                    {{else}}
+                        <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                    {{/if}}
+                </div>
+            {{/if}}
+        {{else}}
+                <!-- FILA 2 -->
+            {{#if (Comparance elemento 3 10)}}
+                {{#if (ComparacionUno elemento 3)}}
+                    <div class="row">
+                        {{#if (SelectColor elemento "Alcanlinos")}}
+                            <div class="columnas bg-danger bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                        {{else}}
+                            <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                        {{/if}}
+                {{else}}                    
+                    {{#if (ComparacionUno elemento 10)}}
+                            {{#if (SelectColor elemento "Gases Nobles")}}
+                            <div class="columnas bg-primary bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                            {{else}}
+                            <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                            {{/if}}
+                        </div>
+                    {{else}}
+                        {{#if (ComparacionUno elemento 5)}}
+                            <div class="invisible otras-fila">&nbsp;</div>
+                                {{#if (SelectColor elemento "Metaloides")}}
+                                    <div class="columnas  bg-warning bg-opacity-25 "> <span> {{elemento.simbolo}}</span></div>
+                                {{else}}
+                                    <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                {{/if}}               
+                        {{else}}
+                                {{#if (SelectColor elemento "Otros No Metales")}}
+                                    <div class="columnas  bg-success bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                {{else}}         
+                                    {{#if (SelectColor elemento "Alcanlinoterreos")}}
+                                        <div class="columnas  bg-danger bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                    {{else}}
+                                        {{#if (SelectColor elemento "Halogenos")}}
+                                            <div class="columnas  bg-info bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                        {{else}}
+                                            <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                        {{/if}}
+                                    {{/if}}
+                                {{/if}} 
+                        {{/if}}
+                    {{/if}}
+                {{/if}}     
+            {{else}}    
+                <!-- FILA 3 -->
+                {{#if (Comparance elemento 11 18)}}    
+                    {{#if (ComparacionUno elemento 11)}}
+                        <div class="row">
+                            {{#if (SelectColor elemento "Alcanlinos")}}
+                            <div class="columnas bg-danger bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                            {{else}}
+                            <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                            {{/if}}
+                    {{else}}                    
+                        {{#if (ComparacionUno elemento 18)}}
+                                {{#if (SelectColor elemento "Gases Nobles")}}
+                                    <div class="columnas bg-primary bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                {{else}}
+                                    <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                {{/if}}
+                            </div>
+                        {{else}}
+                            {{#if (ComparacionUno elemento 13)}}
+                                <div class="invisible otras-fila">&nbsp;</div>
+                                    {{#if (SelectColor elemento "Otros Metales")}}
+                                        <div class="columnas  bg-warning bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                    {{else}}
+                                        <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                    {{/if}}  
+                            {{else}}
+                                {{#if (SelectColor elemento "Otros No Metales")}}
+                                    <div class="columnas  bg-success bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                {{else}}         
+                                    {{#if (SelectColor elemento "Alcanlinoterreos")}}
+                                        <div class="columnas  bg-danger bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                    {{else}}
+                                        {{#if (SelectColor elemento "Halogenos")}}
+                                            <div class="columnas  bg-info bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                        {{else}}
+                                            {{#if (SelectColor elemento "Metaloides")}}
+                                                <div class="columnas  bg-warning bg-opacity-25 "> <span> {{elemento.simbolo}}</span></div>
+                                            {{else}}
+                                                <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                            {{/if}}
+                                        {{/if}}
+                                    {{/if}}
+                                {{/if}}     
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}    
+                {{else}}    
+                    <!-- FILA 4 --> 
+                    {{#if (Comparance elemento 19 36)}}     
+                        {{#if (ComparacionUno elemento 19)}}
+                            <div class="row">
+                                {{#if (SelectColor elemento "Alcanlinos")}}
+                                <div class="columnas bg-danger bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                {{else}}
+                                <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                {{/if}}
+                        {{else}}                    
+                            {{#if (ComparacionUno elemento 36)}}
+                                {{#if (SelectColor elemento "Gases Nobles")}}
+                                    <div class="columnas bg-primary bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                {{else}}
+                                    <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                {{/if}}
+                                </div>
+                            {{else}}          
+                                {{#if (SelectColor elemento "Otros No Metales")}}
+                                    <div class="columnas  bg-success bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                {{else}}         
+                                    {{#if (SelectColor elemento "Alcanlinoterreos")}}
+                                        <div class="columnas  bg-danger bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                    {{else}}
+                                        {{#if (SelectColor elemento "Halogenos")}}
+                                            <div class="columnas  bg-info bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                        {{else}}
+                                            {{#if (SelectColor elemento "Metaloides")}}
+                                                <div class="columnas  bg-warning bg-opacity-25 "> <span> {{elemento.simbolo}}</span></div>
+                                            {{else}}
+                                                {{#if (SelectColor elemento "Metales de Transicion" )}}
+                                                    <div class="columnas  bg-warning bg-opacity-100 "> <span> {{elemento.simbolo}}</span></div>
+                                                {{else}}
+                                                    {{#if (SelectColor elemento "Otros Metales" )}}
+                                                    <div class="columnas  bg-warning bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                                    {{else}}
+                                                    <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                                    {{/if}}
+                                                {{/if}}
+                                            {{/if}}
+                                        {{/if}}
+                                    {{/if}}
+                                {{/if}}        
+                            {{/if}}
+                        {{/if}}
+                    {{else}}
+                        <!-- Fila 5 -->
+                        {{#if (Comparance elemento 37 54)}}     
+                            {{#if (ComparacionUno elemento 37)}}
+                                <div class="row">
+                                    {{#if (SelectColor elemento "Alcanlinos")}}
+                                        <div class="columnas bg-danger bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                    {{else}}
+                                        <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                    {{/if}}
+                            {{else}}                    
+                                {{#if (ComparacionUno elemento 54)}}
+                                    {{#if (SelectColor elemento "Gases Nobles")}}
+                                        <div class="columnas bg-primary bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                    {{else}}
+                                        <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                    {{/if}}
+                                    </div>
+                                {{else}}                                                     
+                                    {{#if (SelectColor elemento "Otros No Metales")}}
+                                        <div class="columnas  bg-success bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                    {{else}}         
+                                        {{#if (SelectColor elemento "Alcanlinoterreos")}}
+                                            <div class="columnas  bg-danger bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                        {{else}}
+                                            {{#if (SelectColor elemento "Halogenos")}}
+                                                <div class="columnas  bg-info bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                            {{else}}
+                                                {{#if (SelectColor elemento "Metaloides")}}
+                                                    <div class="columnas  bg-warning bg-opacity-25 "> <span> {{elemento.simbolo}}</span></div>
+                                                {{else}}
+                                                    {{#if (SelectColor elemento "Metales de Transicion" )}}
+                                                        <div class="columnas  bg-warning bg-opacity-100 "> <span> {{elemento.simbolo}}</span></div>
+                                                    {{else}}
+                                                        {{#if (SelectColor elemento "Otros Metales" )}}
+                                                            <div class="columnas  bg-warning bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                                        {{else}}
+                                                            <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                                        {{/if}}
+                                                    {{/if}}
+                                                {{/if}}
+                                            {{/if}}
+                                        {{/if}}
+                                    {{/if}}        
+                                {{/if}}
+                            {{/if}}
+                        {{else}}
+                            <!-- Fila 6 -->
+                            {{#if (Comparance elemento 55 86)}}
+                                {{#if (ComparacionUno elemento 55)}}
+                                    <div class="row">
+                                    {{#if (SelectColor elemento "Alcanlinos")}}
+                                        <div class="columnas bg-danger bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                    {{else}}
+                                        <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                    {{/if}}
+                                {{else}}                    
+                                    {{#if (ComparacionUno elemento 86)}}
+                                        {{#if (SelectColor elemento "Gases Nobles")}}
+                                            <div class="columnas bg-primary bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                        {{else}}
+                                            <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                        {{/if}}
+                                        </div>
+                                    {{else}}   
+                                        {{#if (ComparacionUno elemento 57)}}    
+                                            {{#if (SelectColor elemento "Lantanidos")}}
+                                                <div class="columnas fs-9 bg-maroon bg-opacity-75"> <span> {{elemento.simbolo}}</span></div>
+                                            {{else}}
+                                                <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                            {{/if}}
+                                        {{else}}                                                                                                                                  
+                                            {{#if (SelectColor elemento "Otros No Metales")}}
+                                                <div class="columnas  bg-success bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                            {{else}}         
+                                                {{#if (SelectColor elemento "Alcanlinoterreos")}}
+                                                    <div class="columnas  bg-danger bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                                {{else}}
+                                                    {{#if (SelectColor elemento "Halogenos")}}
+                                                        <div class="columnas  bg-info bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                                    {{else}}
+                                                        {{#if (SelectColor elemento "Metaloides")}}
+                                                            <div class="columnas  bg-warning bg-opacity-25 "> <span> {{elemento.simbolo}}</span></div>
+                                                        {{else}}
+                                                            {{#if (SelectColor elemento "Metales de Transicion" )}}
+                                                                <div class="columnas  bg-warning bg-opacity-100 "> <span> {{elemento.simbolo}}</span></div>
+                                                            {{else}}
+                                                                {{#if (SelectColor elemento "Otros Metales" )}}
+                                                                    <div class="columnas  bg-warning bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                                                {{else}}
+                                                                    <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                                                {{/if}}
+                                                            {{/if}}
+                                                        {{/if}}
+                                                    {{/if}}
+                                                {{/if}}
+                                            {{/if}}
+                                        {{/if}}                
+                                    {{/if}}
+                                {{/if}} 
+                            {{else}}
+                                <!-- Fila 7 -->
+                                {{#if (Comparance elemento 87 118)}}                                    
+                                    {{#if (ComparacionUno elemento 87)}}
+                                        <div class="row">
+                                            {{#if (SelectColor elemento "Alcanlinos")}}
+                                                <div class="columnas bg-danger bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                            {{else}}
+                                                <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                            {{/if}}
+                                    {{else}}                    
+                                        {{#if (ComparacionUno elemento 118)}}
+                                            {{#if (SelectColor elemento "Gases Nobles")}}
+                                                <div class="columnas bg-primary bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                            {{else}}
+                                                <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                            {{/if}}
+                                            </div>
+                                        {{else}}   
+                                            {{#if (ComparacionUno elemento 89)}}    
+                                                {{#if (SelectColor elemento "Actinidos")}}
+                                                    <div class="columnas fs-9 bg-purple bg-opacity-50"> <span> {{elemento.simbolo}}</span></div>
+                                                {{else}}
+                                                    <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                                {{/if}}
+                                            {{else}}                                                                                      
+                                                
+                                                {{#if (SelectColor elemento "Otros No Metales")}}
+                                                    <div class="columnas  bg-success bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                                {{else}}         
+                                                    {{#if (SelectColor elemento "Alcanlinoterreos")}}
+                                                        <div class="columnas  bg-danger bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                                    {{else}}
+                                                        {{#if (SelectColor elemento "Halogenos")}}
+                                                            <div class="columnas  bg-info bg-opacity-75 "> <span> {{elemento.simbolo}}</span></div>
+                                                        {{else}}
+                                                            {{#if (SelectColor elemento "Metaloides")}}
+                                                                <div class="columnas  bg-warning bg-opacity-25 "> <span> {{elemento.simbolo}}</span></div>
+                                                            {{else}}
+                                                                {{#if (SelectColor elemento "Metales de Transicion" )}}
+                                                                    <div class="columnas  bg-warning bg-opacity-100 "> <span> {{elemento.simbolo}}</span></div>
+                                                                {{else}}
+                                                                    {{#if (SelectColor elemento "Otros Metales" )}}
+                                                                        <div class="columnas  bg-warning bg-opacity-50 "> <span> {{elemento.simbolo}}</span></div>
+                                                                    {{else}}
+                                                                        <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                                                                    {{/if}}
+                                                                {{/if}}
+                                                            {{/if}}
+                                                        {{/if}} 
+                                                    {{/if}}
+                                                {{/if}}
+                                            {{/if}}                
+                                        {{/if}}
+                                    {{/if}} 
+                                {{/if}}
+                            {{/if}} 
+                        {{/if}}                        
+                    {{/if}}                                                                       
+                {{/if}}
+            {{/if}}
+        {{/if}}
+         {{/each}}     
+        {{#each (ListarSegundoArreglo elementos) as |elemento|}}
+            {{#if (Comparance elemento 57 71)}}
+                {{#if (ComparacionUno elemento 57)}}
+                    <div class="row mt-2">
+                    <div class="invisible ultimas-fila">&nbsp;</div>
+                    {{#if (SelectColor elemento "Lantanidos")}}
+                        <div class="columnas bg-maroon bg-opacity-75"> <span> {{elemento.simbolo}}</span></div>
+                    {{else}}
+                        <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                    {{/if}}
+                {{else}}
+                    {{#if (ComparacionUno elemento 71)}}
+                            {{#if (SelectColor elemento "Lantanidos")}}
+                                <div class="columnas bg-maroon bg-opacity-75"> <span> {{elemento.simbolo}}</span></div>
+                            {{else}}
+                                <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                            {{/if}}
+                        </div>
+                    {{else}}
+                        {{#if (SelectColor elemento "Lantanidos")}}
+                            <div class="columnas bg-maroon bg-opacity-75"> <span> {{elemento.simbolo}}</span></div>
+                        {{else}}
+                            <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            {{else}}
+                {{#if (Comparance elemento 89 103)}}
+                    {{#if (ComparacionUno elemento 89)}}
+                        <div class="row mb-1">
+                        <div class="invisible ultimas-fila">&nbsp;</div>
+                        {{#if (SelectColor elemento "Actinidos")}}
+                            <div class="columnas bg-purple bg-opacity-75"> <span> {{elemento.simbolo}}</span></div>
+                        {{else}}
+                            <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                        {{/if}}
+                    {{else}}
+                        {{#if (ComparacionUno elemento 103)}}
+                            {{#if (SelectColor elemento "Actinidos")}}
+                                <div class="columnas bg-purple bg-opacity-75"> <span> {{elemento.simbolo}}</span></div>
+                            {{else}}
+                                <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                            {{/if}}
+                            </div>
+                        {{else}}
+                            {{#if (SelectColor elemento "Actinidos")}}
+                                <div class="columnas bg-purple bg-opacity-75"> <span> {{elemento.simbolo}}</span></div>
+                            {{else}}
+                                <div class="columnas bg-secondary "> <span> &nbsp;</span></div>
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/each}}
+        <div class="m-3">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="5" class="text-white text-center bg-secondary">Metales</td>
+                        <td rowspan="4" class="text-white my-auto bg-warning bg-opacity-25">Metaloides</td>
+                        <td colspan="3" class="text-white text-center bg-secondary">No Metales</td>
+                    </tr>               
+                    <tr >
+                        <td rowspan="2" class="bg-danger bg-opacity-75 text-light fw-bolder">Alcalino</td>
+                        <td rowspan="2" class="bg-danger bg-opacity-50 text-light fw-bolder">alcalinotérreos</td>
+                        <td rowspan="2" class="bg-warning bg-opacity-100 text-light fw-bolder">Metales de transición/ Bloque D</td>
+                        <td class="bg-maroon bg-opacity-75 text-light fw-bolder">Lantánidos</td>
+                        <td rowspan="2" class="bg-warning bg-opacity-50 text-light fw-bolder">Otros Metales</td>
+                        <td rowspan="2" class="bg-success bg-opacity-75 text-light fw-bolder">Otros No Metales</td>
+                        <td rowspan="2" class="bg-info bg-opacity-75 text-light fw-bolder">Halógenos</td>
+                        <td rowspan="2" class="bg-primary bg-opacity-50 text-light fw-bolder">Gases Nobles</td>
+                    </tr>     
+                    <tr>
+                        <td class="bg-purple bg-opacity-75 text-light fw-bolder">Actínidos</td>
+                    </tr>               
+                </tbody>
+            </table>
+        </div>
+    </div>          
+</body>
+</html>
